@@ -5,7 +5,7 @@ function MainInfo() {
     <InfoSection className="flex-all-center column">
       <SubTitle>
         <span>모두의 상상을 구현하는 </span>
-        <span>"프론트엔드 개발자"</span>
+        <span>프론트엔드 개발자</span>
       </SubTitle>
       <PortfolioTitle>
         <h1>
@@ -38,10 +38,6 @@ function MainInfo() {
         <br />
         <p className="bottom-text">
           * 본 페이지는 비상업적 목적의 개인포트폴리오 페이지입니다. <br />
-          페이지에 사용된 모든 이미지와 폰트는 직접 구매한 소스임을
-          알려드립니다.
-          <br />
-          <br /> © 2023 kimjubee. All Rights Reserved.
         </p>
       </div>
     </InfoSection>

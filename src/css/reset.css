@@ -134,3 +134,9 @@ a:active {
   color: #fff;
   background-color: #f59000;
 }
+
+button {
+  box-shadow: none;
+  padding: 0;
+  cursor: pointer;
+}
