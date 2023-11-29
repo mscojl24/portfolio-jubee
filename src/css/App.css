@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "KopubM";
+  src: url("../fonts/kopubworld.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "KopubL";
+  src: url("../fonts/KoPubWorld\ Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lime";
+  src: url("../fonts/210lime.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "촵";
+  src: url("../fonts/chab.otf") format("truetype");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --main-color: #7683d9;
+  --sub-color: #d8a0fe;
+
+  --main-bg-color: #0e131d;
+  --sub-bg-color: rgb(23, 33, 48);
+
+  --text-color: #bdbdbd;
+  --main-text-color: #787878;
+  --sub-text-color: #525252;
+
+  --btn-bg-color: #201e39;
+  --btn-st-color: #8f8ae2;
+}
+
+/**수평,수직 중앙정렬**/
+.flex-all-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**수평,수직 중앙정렬**/
+.flex-v-center {
+  display: flex;
+  justify-content: center;
+}
+
+/**수평,수직 중앙정렬**/
+.flex-h-center {
+  display: flex;
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
