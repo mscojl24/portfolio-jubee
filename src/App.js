@@ -1,4 +1,5 @@
 
+import styled from 'styled-components';
 import './css/App.css';
 import './css/reset.css';
 
@@ -12,3 +13,7 @@ function App() {
 }
 
 export default App;
+
+
+
+

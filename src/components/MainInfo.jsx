@@ -3,9 +3,14 @@ import styled from "styled-components";
 function MainInfo() {
   return (
     <InfoSection className="flex-all-center column">
-      <SubTitle>
-        <span>모두의 상상을 구현하는 </span>
-        <span>프론트엔드 개발자</span>
+      <SubTitle className="flex-all-center">
+        <div>모두의 상상을 구현하는 </div>
+        <div>
+          <p>프론트엔드 개발자</p>
+          <div className="under-bar">
+            <div className="gauge-bar"></div>
+          </div>
+        </div>
       </SubTitle>
       <PortfolioTitle>
         <h1>
@@ -53,6 +58,8 @@ const InfoSection = styled.div`
   z-index: 1;
   letter-spacing: -0.2px;
   text-align: center;
+  animation: showup 1s 1s forwards;
+  opacity: 0;
 
   .top-text {
     color: var(--text-color);
@@ -64,25 +71,56 @@ const InfoSection = styled.div`
     line-height: 150%;
     text-transform: uppercase;
   }
+
+  @keyframes showup {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
 `;
 
 const SubTitle = styled.div`
   font-size: 35px;
   letter-spacing: -2px;
 
-  span:nth-child(1) {
+  div:nth-child(1) {
     color: var(--text-color);
   }
 
-  span:nth-child(2) {
+  div:nth-child(2) {
+    position: relative;
+    margin-left: 10px;
     color: var(--main-text-color);
-    border-bottom: 2px dashed var(--main-text-color);
-
     transition: 0.3s all ease-in-out;
+
+    .under-bar {
+      position: absolute;
+      bottom: -10px;
+      left: 0px;
+      margin: 0px;
+      width: 100%;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .gauge-bar {
+      width: 0%;
+      height: 2px;
+      background-color: var(--main-color);
+      transition: 0.3s all ease-in-out;
+    }
   }
 
-  span:nth-child(2):hover {
+  div:nth-child(2):hover {
     color: var(--main-color);
+
+    .gauge-bar {
+      width: 100%;
+    }
   }
 `;
 

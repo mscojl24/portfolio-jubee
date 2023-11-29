@@ -31,6 +31,8 @@ const SideBarSection = styled.nav`
   right: 70px;
   width: 120px;
   height: 100%;
+  animation: sidebarshowup 1s forwards;
+  opacity: 0;
 
   .page-numbering {
     width: 100%;
@@ -45,6 +47,17 @@ const SideBarSection = styled.nav`
     );
     color: transparent;
     -webkit-background-clip: text;
+  }
+
+  @keyframes sidebarshowup {
+    0% {
+      transform: translateX(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0px);
+      opacity: 1;
+    }
   }
 `;
 

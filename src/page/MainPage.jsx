@@ -6,12 +6,14 @@ import SideBar from "../components/sidebar/SideBar";
 
 function MainPage() {
   return (
-    <MainSection className="flex-v-center">
+    <MainSection className="flex-h-center column">
       <ShootingStar />
-      <BubbleEffect top="-250px" right="50px"></BubbleEffect>
-      <BubbleEffect top="50px" right="-200px" second="7"></BubbleEffect>
-      <BubbleEffect top="500px" left="-150px" second="5"></BubbleEffect>
-      <BubbleEffect top="800px" left="100px" w="400" h="400"></BubbleEffect>
+      <div className="opacity">
+        <BubbleEffect top="-250px" right="50px"></BubbleEffect>
+        <BubbleEffect top="50px" right="-200px" second="7"></BubbleEffect>
+        <BubbleEffect top="500px" left="-150px" second="5"></BubbleEffect>
+        <BubbleEffect top="800px" left="100px" w="400" h="400"></BubbleEffect>
+      </div>
       <SideBar />
       <MainInfo />
     </MainSection>
@@ -24,12 +26,23 @@ const MainSection = styled.section`
   overflow: hidden;
   position: relative;
   width: 100%;
-  height: 200vh;
+  height: 100vh;
   color: var(--main-text-color);
   background-color: var(--main-bg-color);
   color: #fff;
 
   font-family: "KopubL";
+
+  .opacity {
+    opacity: 0;
+    animation: opacity 2s 1s forwards;
+  }
+
+  @keyframes opacity {
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 const BubbleEffect = styled.div`
   position: absolute;
