@@ -58,7 +58,7 @@ const InfoSection = styled.div`
   z-index: 1;
   letter-spacing: -0.2px;
   text-align: center;
-  animation: showup 1s 1s forwards;
+  animation: showup 1s 0s forwards;
   opacity: 0;
 
   .top-text {

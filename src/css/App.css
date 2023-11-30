@@ -9,6 +9,11 @@
 }
 
 @font-face {
+  font-family: "KopubB";
+  src: url("../fonts/KoPubWorld\ B.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "Lime";
   src: url("../fonts/210lime.otf") format("truetype");
 }

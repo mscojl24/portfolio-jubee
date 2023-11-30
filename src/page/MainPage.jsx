@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import { Routes, Route } from "react-router-dom";
 
 import ShootingStar from "../components/ShootingStar";
 import MainInfo from "../components/MainInfo";
 import SideBar from "../components/sidebar/SideBar";
+import Profile from "../components/info/Profile";
 
 function MainPage() {
   return (
@@ -15,7 +17,10 @@ function MainPage() {
         <BubbleEffect top="800px" left="100px" w="400" h="400"></BubbleEffect>
       </div>
       <SideBar />
-      <MainInfo />
+      <Routes>
+        <Route path="*" element={<MainInfo />}></Route>
+        <Route path="/profile" element={<Profile />}></Route>
+      </Routes>
     </MainSection>
   );
 }
