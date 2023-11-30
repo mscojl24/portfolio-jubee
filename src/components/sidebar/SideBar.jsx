@@ -1,18 +1,60 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+
+import { useEffect, useState } from "react";
+import { navBtnData } from "../../data/navBtnData";
 
 function SideBar() {
+  const navigate = useNavigate();
+
+  const [sideNum, setSideNum] = useState("01");
+  const [sideText, setSideText] = useState("MAIN PAGE");
+
+  const handlenavigate = (link, num, text) => {
+    navigate(link);
+
+    localStorage.setItem("sideNumber", num);
+    localStorage.setItem("sideText", text);
+
+    setSideNum(num);
+    setSideText(text);
+  };
+
+  useEffect(() => {
+    const sideNumber = localStorage.getItem("sideNumber");
+    const sideText = localStorage.getItem("sideText");
+
+    setSideNum(sideNumber);
+    setSideText(sideText);
+
+    const element = document.querySelector(".page-numbering");
+    element.style.animation = "none";
+    void element.offsetWidth; // reflow
+    element.style.animation = `changeNum 0.5s forwards`;
+
+    const name = document.querySelector(".page-text");
+    name.style.animation = "none";
+    void name.offsetWidth; // reflow
+    name.style.animation = `changeText 1s forwards`;
+  }, [sideNum, sideText]);
+
   return (
     <SideBarSection className="flex-all-center column">
       <div className="page-numbering flex-all-center ">
-        <p>01</p>
+        <p>{sideNum}</p>
       </div>
       <NavBtn className="flex-all-center column">
-        <span>Main Page</span>
+        <span className="page-text">{sideText}</span>
         <div className="nav-line"></div>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
+        {navBtnData.map((nav, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              handlenavigate(nav.link, nav.number, nav.name);
+            }}
+            className={nav.number === sideNum && "click-nav-btn"}
+          ></button>
+        ))}
       </NavBtn>
       <MouseIcon className="flex-all-center column">
         <div className="mouse-body">
@@ -33,6 +75,7 @@ const SideBarSection = styled.nav`
   height: 100%;
   animation: sidebarshowup 1s forwards;
   opacity: 0;
+  z-index: 3;
 
   .page-numbering {
     width: 100%;
@@ -47,6 +90,16 @@ const SideBarSection = styled.nav`
     );
     color: transparent;
     -webkit-background-clip: text;
+  }
+
+  @keyframes changeNum {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
   }
 
   @keyframes sidebarshowup {
@@ -74,10 +127,10 @@ const NavBtn = styled.div`
   }
 
   & > button {
-    width: 15px;
-    height: 15px;
+    width: 13px;
+    height: 13px;
     border-radius: 12px;
-    border: 5px solid #929292;
+    border: 3px solid #929292;
     background-color: rgba(0, 0, 0, 0);
     margin: 6px;
     z-index: 1;
@@ -87,12 +140,31 @@ const NavBtn = styled.div`
     border-color: #fff;
   }
 
+  .click-nav-btn {
+    border-color: var(--main-color);
+    background-color: var(--main-color);
+  }
+
   & > span {
+    width: 100px;
+    height: 20px;
+    text-align: center;
     position: absolute;
     transform: rotate(90deg);
     right: -20px;
     text-transform: uppercase;
     opacity: 0.5;
+  }
+
+  @keyframes changeText {
+    0% {
+      opacity: 0;
+      transform: rotate(90deg) translateX(-50px);
+    }
+    100% {
+      opacity: 0.5;
+      transform: rotate(90deg) translateX(0px);
+    }
   }
 `;
 const MouseIcon = styled.div`
