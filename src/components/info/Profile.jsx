@@ -28,10 +28,10 @@ const ProfileSection = styled.article`
   width: 80%;
   height: 100%;
   margin-right: 100px;
-  animation: showup 1s 0s forwards;
   opacity: 0;
   color: var(--main-text-color);
 
+  animation: showup 1s 0s forwards;
   @keyframes showup {
     0% {
       transform: translateY(-50px);

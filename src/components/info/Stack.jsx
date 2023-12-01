@@ -93,14 +93,14 @@ const StackContent = styled.ul`
     justify-content: center;
     align-items: center;
     font-family: "kopubB";
-    color: #4c4c4c;
     font-size: 14px;
+    color: #4c4c4c;
     border: 1px solid #0c0c0c;
+    background-color: #181a14;
     padding: 0px 15px;
     height: 25px;
     border-radius: 5px;
     margin: 5px 5px 5px 0px;
-    background-color: #181a14;
     transition: all ease-in-out 0.3s;
   }
 

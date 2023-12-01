@@ -10,19 +10,19 @@ export const navBtnData = [
     link: "/profile",
   },
   {
-    name: "UNCOVER",
+    name: "TICAT",
     number: "03",
-    link: "/uncover",
+    link: "/ticat",
   },
   {
-    name: "TICAT",
+    name: "UNCOVER",
     number: "04",
-    link: "/ticat",
+    link: "/uncover",
   },
   {
     name: "ANI SHCOOL",
     number: "05",
-    link: "/anishcool",
+    link: "/anischool",
   },
   {
     name: "END PAGE",

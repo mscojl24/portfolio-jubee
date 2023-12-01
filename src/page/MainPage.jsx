@@ -5,6 +5,9 @@ import ShootingStar from "../components/ShootingStar";
 import MainInfo from "../components/MainInfo";
 import SideBar from "../components/sidebar/SideBar";
 import Profile from "../components/info/Profile";
+import UncoverPage from "../components/project/UncoverPage";
+import TicatPage from "../components/project/TicatPage";
+import AniSchoolPage from "../components/project/AniSchoolPage";
 
 function MainPage() {
   return (
@@ -20,6 +23,9 @@ function MainPage() {
       <Routes>
         <Route path="*" element={<MainInfo />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/ticat" element={<TicatPage />}></Route>
+        <Route path="/uncover" element={<UncoverPage />}></Route>
+        <Route path="/anischool" element={<AniSchoolPage />}></Route>
       </Routes>
     </MainSection>
   );
