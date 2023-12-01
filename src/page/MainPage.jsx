@@ -8,6 +8,7 @@ import Profile from "../components/info/Profile";
 import UncoverPage from "../components/project/UncoverPage";
 import TicatPage from "../components/project/TicatPage";
 import AniSchoolPage from "../components/project/AniSchoolPage";
+import EndPage from "../components/end/EndPage";
 
 function MainPage() {
   return (
@@ -26,6 +27,7 @@ function MainPage() {
         <Route path="/ticat" element={<TicatPage />}></Route>
         <Route path="/uncover" element={<UncoverPage />}></Route>
         <Route path="/anischool" element={<AniSchoolPage />}></Route>
+        <Route path="/endpage" element={<EndPage />}></Route>
       </Routes>
     </MainSection>
   );

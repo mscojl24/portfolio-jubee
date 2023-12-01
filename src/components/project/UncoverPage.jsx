@@ -1,7 +1,6 @@
 import styled from "styled-components";
-
 import SliderShow from "./SliderShow";
-import { stackData } from "../../data/stackData";
+import { uncoverBtn } from "../../data/urlData";
 
 const imageData = [
   "https://i.imgur.com/wslvLaW.png",
@@ -13,6 +12,10 @@ const imageData = [
 ];
 
 function TicatPage() {
+  const handleExternalLink = (url) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <TicatSection className="flex-all-center">
       <div className="project-image">
@@ -30,9 +33,16 @@ function TicatPage() {
           코멘트 CRUD 서비스 제공 등을 도맡아 진행하였습니다.
         </p>
         <div>
-          <button>💻 Web site</button>
-          <button>Git Hub</button>
-          <button>Figma</button>
+          {uncoverBtn.map((url, idx) => (
+            <button
+              key={idx}
+              onClick={() => {
+                handleExternalLink(url.url);
+              }}
+            >
+              {url.icon} {url.name}
+            </button>
+          ))}
         </div>
       </div>
     </TicatSection>
@@ -111,6 +121,10 @@ const TicatSection = styled.div`
     padding: 7px 25px;
     border-radius: 5px;
     transition: 0.3s all ease-in-out;
+    > *:nth-child(1) {
+      margin-right: 5px;
+      transform: translateY(3px);
+    }
   }
 
   button:hover {

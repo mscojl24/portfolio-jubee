@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
 import SliderShow from "./SliderShow";
+import { anischoolBtn } from "../../data/urlData";
 
 const imageData = [
-  "https://i.imgur.com/KVWozWR.png",
   "https://i.imgur.com/tfRjG11.png",
+  "https://i.imgur.com/KVWozWR.png",
   "https://i.imgur.com/r126TQG.png",
   "https://i.imgur.com/EukRj4A.png",
   "https://i.imgur.com/D0lVLFn.png",
 ];
 
 function TicatPage() {
+  const handleExternalLink = (url) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <TicatSection className="flex-all-center">
       <div className="project-image">
@@ -28,11 +33,18 @@ function TicatPage() {
           대해 심도깊게 고민하며 협업에서 중요한 git flow 전략을 주도적으로
           배워볼수 있었던 프로젝트로,기초적인 스텍을 쌓아가기에 가장 많은 도움이
           된 작품입니다.
-        </p>
+        </p>{" "}
         <div>
-          <button>💻 Web site</button>
-          <button>Git Hub</button>
-          <button>Figma</button>
+          {anischoolBtn.map((url, idx) => (
+            <button
+              key={idx}
+              onClick={() => {
+                handleExternalLink(url.url);
+              }}
+            >
+              {url.icon} {url.name}
+            </button>
+          ))}
         </div>
       </div>
     </TicatSection>
@@ -111,6 +123,10 @@ const TicatSection = styled.div`
     padding: 7px 25px;
     border-radius: 5px;
     transition: 0.3s all ease-in-out;
+    > *:nth-child(1) {
+      margin-right: 5px;
+      transform: translateY(3px);
+    }
   }
 
   button:hover {

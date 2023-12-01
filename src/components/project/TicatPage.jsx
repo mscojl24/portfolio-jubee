@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import SliderShow from "./SliderShow";
+import { ticatBtn } from "../../data/urlData";
 
 const imageData = [
   "https://i.imgur.com/beLiEsR.png",
@@ -12,6 +13,10 @@ const imageData = [
 ];
 
 function TicatPage() {
+  const handleExternalLink = (url) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <TicatSection className="flex-all-center">
       <div className="project-image">
@@ -28,9 +33,16 @@ function TicatPage() {
           API 를 통한 서비스 제공을 도맡아 진행하였습니다.
         </p>
         <div>
-          <button>💻 Web site</button>
-          <button>Git Hub</button>
-          <button>Figma</button>
+          {ticatBtn.map((url, idx) => (
+            <button
+              key={idx}
+              onClick={() => {
+                handleExternalLink(url.url);
+              }}
+            >
+              {url.icon} {url.name}
+            </button>
+          ))}
         </div>
       </div>
     </TicatSection>
@@ -109,6 +121,10 @@ const TicatSection = styled.div`
     padding: 7px 25px;
     border-radius: 5px;
     transition: 0.3s all ease-in-out;
+    > *:nth-child(1) {
+      margin-right: 5px;
+      transform: translateY(3px);
+    }
   }
 
   button:hover {
