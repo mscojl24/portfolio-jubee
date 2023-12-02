@@ -23,7 +23,7 @@ export const ticatBtn = [
   {
     name: "Web site",
     icon: <FaPlay />,
-    url: "https://uncoversound.com/",
+    url: "https://d99pqcn6hzkdg.cloudfront.net/",
   },
   {
     name: "Git Hub",
