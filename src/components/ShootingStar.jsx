@@ -2,18 +2,18 @@ import "../css/star.css";
 
 function ShootingStar() {
   return (
-    <div class="top">
-      <div class="shooting-stars">
-        <div class="shooting-star"></div>
-        <div class="shooting-star shooting-star--mid"></div>
-        <div class="shooting-star shooting-star--fast"></div>
-        <div class="shooting-star shooting-star--meh"></div>
-        <div class="shooting-star shooting-star--meh2"></div>
-        <div class="shooting-star shooting-star--meh3"></div>
-        <div class="shooting-star shooting-star--meh4"></div>
-        <div class="shooting-star shooting-star--meh5"></div>
-        <div class="shooting-star shooting-star--meh6"></div>
-        <div class="shooting-star shooting-star--meh7"></div>
+    <div className="top">
+      <div className="shooting-stars">
+        <div className="shooting-star"></div>
+        <div className="shooting-star shooting-star--mid"></div>
+        <div className="shooting-star shooting-star--fast"></div>
+        <div className="shooting-star shooting-star--meh"></div>
+        <div className="shooting-star shooting-star--meh2"></div>
+        <div className="shooting-star shooting-star--meh3"></div>
+        <div className="shooting-star shooting-star--meh4"></div>
+        <div className="shooting-star shooting-star--meh5"></div>
+        <div className="shooting-star shooting-star--meh6"></div>
+        <div className="shooting-star shooting-star--meh7"></div>
       </div>
     </div>
   );
