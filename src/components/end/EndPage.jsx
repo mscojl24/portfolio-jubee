@@ -3,15 +3,23 @@ import { RiKakaoTalkFill } from "react-icons/ri";
 import { TbBrandGithubFilled } from "react-icons/tb";
 
 function EndPage() {
+  const handleLinkKakao = () => [
+    window.open("https://open.kakao.com/o/sMg43KVf", "_blank"),
+  ];
+
+  const handleLinkGithub = () => [
+    window.open("http://github.com/mscojl24/ticat-client", "_blank"),
+  ];
+
   return (
     <EndpageSection className="container flex-all-center">
-      <h1 class="title">
+      <h1 className="title">
         <span>제 포트폴리오</span>
         <span>재미있게</span>
         <span>감상하셨나요?</span>
       </h1>
 
-      <h2 class="title">
+      <h2 className="title">
         <span>그렇다면</span>
         <span>이쪽으로</span>
         <span>연락주세요!</span>
@@ -44,10 +52,18 @@ function EndPage() {
           <span>m</span>
         </div>
         <ContactIcon className="flex-all-center">
-          <button>
+          <button
+            onClick={() => {
+              handleLinkKakao();
+            }}
+          >
             <RiKakaoTalkFill /> 오픈채팅방 연결하기
           </button>
-          <button>
+          <button
+            onClick={() => {
+              handleLinkGithub();
+            }}
+          >
             <TbBrandGithubFilled /> 깃허브 보러가기
           </button>
         </ContactIcon>
@@ -136,7 +152,7 @@ const EndpageSection = styled.section`
 
       top: -5px;
       text-shadow: 0 1px 0 var(--main-color), 0 2px 0 #403ea4, 0 3px 0 #403ea4,
-        0 4px 0 #403ea4, 0 5px 0 #403ea4, 0 50px 25px rgba(0, 0, 0, 0.2);
+        0 4px 0 #403ea4, 0 5px 0 #403ea4;
 
       -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
       clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);

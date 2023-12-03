@@ -3,29 +3,41 @@ import { useNavigate } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import { navBtnData } from "../../data/navBtnData";
+import { usePageNumberState } from "../../atom/navigate";
+import { useRecoilState } from "recoil";
 
 function SideBar() {
   const navigate = useNavigate();
-
-  const [sideNum, setSideNum] = useState("01");
+  const [pageNumber, setPageNumber] = useRecoilState(usePageNumberState);
+  const [sideNum, setSideNum] = useState(1);
   const [sideText, setSideText] = useState("MAIN PAGE");
+
+  console.log();
 
   const handlenavigate = (link, num, text) => {
     navigate(link);
-
-    localStorage.setItem("sideNumber", num);
-    localStorage.setItem("sideText", text);
-
+    setPageNumber(num);
     setSideNum(num);
     setSideText(text);
   };
 
   useEffect(() => {
-    const sideNumber = localStorage.getItem("sideNumber");
-    const sideText = localStorage.getItem("sideText");
-
-    setSideNum(sideNumber);
+    setSideNum(pageNumber);
     setSideText(sideText);
+
+    if (pageNumber === 1) {
+      setSideText("MAINPAGE");
+    } else if (pageNumber === 2) {
+      setSideText("PROFILE");
+    } else if (pageNumber === 3) {
+      setSideText("TICAT");
+    } else if (pageNumber === 4) {
+      setSideText("UNCOVER");
+    } else if (pageNumber === 5) {
+      setSideText("ANISHOOL");
+    } else if (pageNumber === 6) {
+      setSideText("ENDPAGE");
+    }
 
     const element = document.querySelector(".page-numbering");
     element.style.animation = "none";
@@ -36,12 +48,12 @@ function SideBar() {
     name.style.animation = "none";
     void name.offsetWidth; // reflow
     name.style.animation = `changeText 1s forwards`;
-  }, [sideNum, sideText]);
+  }, [pageNumber]);
 
   return (
     <SideBarSection className="flex-all-center column">
       <div className="page-numbering flex-all-center ">
-        <p>{sideNum}</p>
+        <p>0{pageNumber}</p>
       </div>
       <NavBtn className="flex-all-center column">
         <span className="page-text">{sideText}</span>
@@ -52,11 +64,12 @@ function SideBar() {
             onClick={() => {
               handlenavigate(nav.link, nav.number, nav.name);
             }}
-            className={nav.number === sideNum && "click-nav-btn"}
+            className={nav.number === sideNum ? "click-nav-btn" : "null"}
           ></button>
         ))}
       </NavBtn>
       <MouseIcon className="flex-all-center column">
+        <div className="arrow-up"></div>
         <div className="mouse-body">
           <div className="mouse-wheel"></div>
         </div>
@@ -127,12 +140,12 @@ const NavBtn = styled.div`
   }
 
   & > button {
-    width: 13px;
-    height: 13px;
+    width: 5px;
+    height: 5px;
     border-radius: 12px;
     border: 3px solid #929292;
     background-color: rgba(0, 0, 0, 0);
-    margin: 6px;
+    margin: 20px;
     z-index: 1;
     transition: 0.3s all ease-in-out;
   }
@@ -141,6 +154,8 @@ const NavBtn = styled.div`
   }
 
   .click-nav-btn {
+    width: 8px;
+    height: 20px;
     border-color: var(--main-color);
     background-color: var(--main-color);
   }
@@ -169,7 +184,7 @@ const NavBtn = styled.div`
 `;
 const MouseIcon = styled.div`
   width: 100%;
-  height: 120px;
+  height: 150px;
 
   .mouse-body {
     position: relative;
@@ -197,6 +212,16 @@ const MouseIcon = styled.div`
     margin-top: 10px;
     animation: arrow 2s 0s infinite;
     transform: rotate(45deg);
+  }
+
+  .arrow-up {
+    width: 10px;
+    height: 10px;
+    border-right: 3px solid #929292;
+    border-bottom: 3px solid #929292;
+    margin: 10px;
+    animation: arrow 2s 0s infinite;
+    transform: rotate(225deg);
   }
 
   @keyframes wheel {

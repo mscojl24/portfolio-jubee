@@ -1,32 +1,32 @@
 export const navBtnData = [
   {
     name: "MAIN PAGE",
-    number: "01",
+    number: 1,
     link: "/",
   },
   {
     name: "PROFILE",
-    number: "02",
+    number: 2,
     link: "/profile",
   },
   {
     name: "TICAT",
-    number: "03",
+    number: 3,
     link: "/ticat",
   },
   {
     name: "UNCOVER",
-    number: "04",
+    number: 4,
     link: "/uncover",
   },
   {
     name: "ANI SHCOOL",
-    number: "05",
+    number: 5,
     link: "/anischool",
   },
   {
     name: "END PAGE",
-    number: "06",
+    number: 6,
     link: "/endpage",
   },
 ];
